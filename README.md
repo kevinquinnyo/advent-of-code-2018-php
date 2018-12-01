@@ -13,7 +13,7 @@ My attempt at solving the Advent of Code puzzles using PHP.
 git clone https://github.com/kevinquinnyo/advent-of-code-2018-php.git
 cd advent-of-code-2018-php
 composer install
-./day1.php
+php day1.php
 ```
 
 I am not sure if the 'sequence' is different for everyone, or if it's the same, but if your sequence does not match the array in `src/Data/Sequence.php`, you can override it when initializing the `Frequency` class by passing in your own array. The unit tests do this for instance.
