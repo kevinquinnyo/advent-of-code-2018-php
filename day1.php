@@ -28,6 +28,7 @@ $printer = function (array $result) {
         $duplicate,
         $iteration
     );
+    echo PHP_EOL;
     echo sprintf('Execution time: %f seconds', $elapsed) . PHP_EOL;
 };
 
