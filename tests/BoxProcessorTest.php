@@ -51,19 +51,6 @@ class BoxProcessorTest extends TestCase
         $this->assertSame(12, $checksum);
     }
 
-    public function testDiffStrings()
-    {
-        $boxIds = [
-            'abc123',
-            'abX123',
-        ];
-
-        $processor = new BoxProcessor($boxIds);
-        $diff = $processor->diffStrings('abc123', 'abX123');
-
-        var_dump($diff); die();
-    }
-
     public function testGetCorrectBoxIds()
     {
         $boxIds = [
@@ -78,7 +65,6 @@ class BoxProcessorTest extends TestCase
         ];
 
         $correctLabel = (new BoxProcessor($boxIds))->getCorrectBoxId();
-        $correctLabel = (new BoxProcessor())->getCorrectBoxId();
 
         $this->assertSame('ab123', $correctLabel);
     }
