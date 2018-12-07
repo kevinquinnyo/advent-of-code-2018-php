@@ -75,4 +75,31 @@ class Fabric
 
         return $count;
     }
+
+    public function getClaimWithNoOverlaps()
+    {
+        // welp fuck it i don't care anymore
+        $this->process();
+        foreach ($this->data as $claim) {
+            $claim = new Claim($claim);
+            $rows = $this->getConsumption($claim);
+
+            $consumed = false;
+            foreach ($rows as $row => $cols) {
+                foreach ($cols as $col => $val) {
+                    $current = $this->matrix[$row][$col];
+                    if ($current === 'consumed') {
+                        $consumed = true;
+                        continue;
+                    }
+                }
+            }
+
+            if ($consumed === false) {
+                return $claim->id; // i hate this code
+            }
+        }
+
+        return null;
+    }
 }

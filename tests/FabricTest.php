@@ -117,4 +117,25 @@ class FabricTest extends TestCase
 
         $this->assertEquals(1, $area);
     }
+
+    /**
+     * testGetClaimsWithNoOverlaps
+     *
+     * @group no-overlaps
+     *
+     */
+    public function testGetClaimsWithNoOverlaps()
+    {
+        $data = [
+            '#1 @ 3,3: 3x2',
+            '#2 @ 5,2: 3x2',
+            '#3 @ 1,0: 3x2',
+        ];
+        $fabric = new Fabric($data, 8);
+        $fabric = $fabric->buildMatrix();
+
+        $claim = $fabric->getClaimWithNoOverlaps();
+
+        $this->assertEquals(3, $claim);
+    }
 }

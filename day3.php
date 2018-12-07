@@ -9,3 +9,9 @@ $answer = (new Fabric)
     ->process()
     ->getOverlappingArea();
 echo sprintf('ANSWER: %d', $answer) . PHP_EOL;
+
+echo 'PART 2:' . PHP_EOL;
+$answer = (new Fabric)
+    ->buildMatrix()
+    ->getClaimWithNoOverlaps();
+echo sprintf('ANSWER: %d', $answer) . PHP_EOL;

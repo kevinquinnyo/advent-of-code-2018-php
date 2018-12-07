@@ -5,7 +5,8 @@ use InvalidArgumentException;
 
 class Claim
 {
-    private $id = null;
+    public $id = null;
+    public $original = null;
     private $fromLeft = null;
     private $fromTop = null;
     private $width = null;
@@ -13,6 +14,7 @@ class Claim
 
     public function __construct(string $claim)
     {
+        $this->original = $claim;
         [$id, $fromLeft, $fromTop, $width, $height] = $this->explode($claim);
 
         $this->id = $id;
